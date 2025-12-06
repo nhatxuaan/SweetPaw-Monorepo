@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:background="@drawable/product_cart">
+
+    <!-- Checkbox chọn sản phẩm -->
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/cbSelect"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        app:buttonTint="@color/pinkDark" />
+
+    <!-- Ảnh sản phẩm -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="139dp"
+        android:layout_height="125dp"
+        android:layout_marginHorizontal="8dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0dp"
+        android:layout_gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Thông tin -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bánh kem dâu tây tươi #2"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kem dâu tươi trang trí trái dâu thật"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:fontFamily="@font/bevietnammedium"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="360,000đ"
+            android:textColor="@color/pinkDark"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"/>
+
+        <!-- Nút tăng giảm -->
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="10dp">
+
+            <ImageView
+                android:id="@+id/imgTru"
+                android:src="@drawable/tru_cart"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:text="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:textSize="19sp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto"/>
+
+            <ImageView
+                android:id="@+id/imgCong"
+                android:src="@drawable/cong_cart"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right">
+            <!-- Nút xóa -->
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:src="@drawable/delete_cart"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

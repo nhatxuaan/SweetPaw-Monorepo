@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/loTitle"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/pinkDark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/white_back"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THÔNG BÁO"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="824dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rectangle_cart" />
+
+    <LinearLayout
+        android:id="@+id/tabContainer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_tab_container"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:layout_below="@id/loTitle">
+
+        <TextView
+            android:id="@+id/tabAll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Tất cả"
+            android:fontFamily="@font/robotomedium"
+            android:textSize="16sp"
+            android:textColor="@color/pinkDark"
+            android:background="@drawable/bg_tab_selected" />
+
+        <TextView
+            android:id="@+id/tabUnread"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Chưa đọc"
+            android:fontFamily="@font/robotoregular"
+            android:textSize="16sp"
+            android:textColor="#757575"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <!-- Danh sách thông báo -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/tabContainer"
+        android:id="@+id/rvDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp" />
+
+
+</RelativeLayout>
