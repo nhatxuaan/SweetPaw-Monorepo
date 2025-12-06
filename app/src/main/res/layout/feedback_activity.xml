@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+       android:id="@+id/header_gopy"
+       android:layout_width="match_parent"
+       android:layout_height="110dp"
+       android:background="@color/pinkDark">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Góp ý cho SweetPaw"
+           android:textColor="@color/white"
+           android:fontFamily="@font/bevietnambold"
+           android:textSize="22sp"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="25dp"/>
+       <ImageView
+           android:id="@+id/imgBack"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/white_back"
+           android:layout_marginLeft="26dp"
+           android:layout_marginTop="35dp"/>
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="824dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rectangle_cart" />
+
+    <LinearLayout
+        android:layout_below="@+id/header_gopy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bevietnambold"
+            android:text="Mức độ hài lòng"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1"
+            android:rating="0"
+            android:isIndicator="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:progressTint="#FFE839"
+            android:secondaryProgressTint="#FFE839"
+            android:backgroundTint="#E0E0E0"
+            android:scaleX="1"
+            android:scaleY="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bevietnambold"
+            android:text="Nội dung góp ý"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/frame_feedback"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true">
+            <EditText
+                android:id="@+id/edtND"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:hint="Nhập nội dung đánh giá tại đây"
+                android:background="@android:color/transparent" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnGui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gửi"
+            android:fontFamily="@font/bevietnambold"
+            android:textSize="14sp"
+            android:backgroundTint="@color/pinkDark"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="right"/>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <!-- Tin nhắn từ Shop (trái, nền trắng) -->
+    <LinearLayout
+        android:id="@+id/message_shop_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_message_shop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tin nhắn"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/bevietnammedium"
+            android:textSize="15sp"
+            android:background="@drawable/bg_message_shop"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+    </LinearLayout>
+
+    <!-- Tin nhắn từ User (phải, nền hồng) -->
+    <LinearLayout
+        android:id="@+id/message_user_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_message_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tin nhắn"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/bevietnammedium"
+            android:textSize="15sp"
+            android:background="@drawable/bg_message_user"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+    </LinearLayout>
+
+</LinearLayout>
