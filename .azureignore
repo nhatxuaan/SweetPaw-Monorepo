@@ -1,0 +1,21 @@
+# Tài liệu mô tả, không cần deploy
+
+README.md
+
+# File Git
+
+.git
+.gitignore
+
+# Node modules
+
+node_modules/
+
+# File môi trường
+
+.env
+
+# Các thư mục cấu hình IDE
+
+.vscode/
+.idea/
