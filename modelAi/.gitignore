@@ -1,0 +1,45 @@
+
+app.py
+
+data.py
+
+data1.py
+
+fakedata.py
+
+model.py
+
+
+server.py
+
+
+
+# --- ENV ---
+.env/
+venv/
+src/.env
+
+# --- Python cache ---
+__pycache__/
+*/__pycache__/
+*.pyc
+*.pyo
+
+# --- Ignore only at ROOT (not inside src/) ---
+/*.h5
+/*.pkl
+/*.log
+/*.xlsx
+/*.csv
+
+# --- Allow these file types inside src ---
+!src/*.h5
+!src/*.pkl
+!src/*.xlsx
+!src/*.log
+!src/*.csv
+!src/data.py
+
+# --- System files ---
+.DS_Store
+Thumbs.db
