@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="5dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/pinkDark"
+            android:text="Người đánh giá"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#666"
+            android:text="1 tháng trước"
+            android:layout_marginRight="5dp"/>
+    </LinearLayout>
+    <!--Đánh giá sao-->
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:isIndicator="true"
+        android:progressTint="#FFE839"
+        android:layout_gravity="start"
+        android:paddingStart="0dp"
+        android:paddingLeft="0dp"
+        android:translationX="-19dp"
+        android:scaleX="0.7"
+        android:scaleY="0.7" />
+    <!--Nội dung review-->
+    <TextView
+        android:id="@+id/tvReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:text="Nội dung"
+        android:fontFamily="@font/bevietnammedium"
+        android:layout_marginLeft="10dp"/>
+    <!--    đường kẻ ngang-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

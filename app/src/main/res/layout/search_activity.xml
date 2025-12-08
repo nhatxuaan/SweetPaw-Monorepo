@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <include
+        android:id="@+id/header_sweetpaw"
+        layout="@layout/header_app" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- Thanh tìm kiếm -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="8dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="8dp">
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_back"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search_box"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/edtTimKiem"
+                        android:layout_width="0dp"
+                        android:layout_weight="9"
+                        android:layout_height="40dp"
+                        android:background="@android:color/transparent"
+                        android:drawableStart="@drawable/seachicon"
+                        android:drawablePadding="8dp"
+                        android:hint="Tìm kiếm"
+                        android:inputType="text"
+                        android:paddingHorizontal="12dp"
+                        android:textColorHint="@color/black"
+                        android:textSize="12sp">
+                    </EditText>
+                    <ImageView
+                        android:id="@+id/imgFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/filter_icon"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layoutFilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:background="@drawable/frame_feedback"
+                    android:visibility="visible">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="10"
+                            android:text="Mức giá"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/roboto"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="15dp"/>
+                        <TextView
+                            android:id="@+id/tvClose"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:text="X"
+                            android:textColor="@color/pinkDark"
+                            android:textSize="13sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <RadioGroup
+                            android:id="@+id/rgGia1"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rbDuoi100"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="&lt;100k"
+                                android:textSize="12sp"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rb100_200"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="100k - dưới 200k"
+                                android:textSize="12sp"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+
+
+                        </RadioGroup>
+                        <RadioGroup
+                            android:id="@+id/rgGia2"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rb200_300"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="200k - dưới 300k"
+                                android:textSize="12sp"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rb300_400"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="300k - 400k"
+                                android:textSize="12sp"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rbTren400"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="&gt;400k"
+                                android:textSize="12sp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+
+                        </RadioGroup>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đánh giá"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/roboto"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <RadioGroup
+                            android:id="@+id/rgRating1"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rbStar5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="⭐️⭐️⭐️⭐️⭐️"
+                                android:textSize="12sp"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rbStar4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="⭐️⭐️⭐️⭐️"
+                                android:textSize="12sp"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rbStar3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="⭐️⭐️⭐"
+                                android:textSize="12sp"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+
+
+                        </RadioGroup>
+                        <RadioGroup
+                            android:id="@+id/rgRating2"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rbStar2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="⭐️⭐️"
+                                android:textSize="12sp"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rbStar1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:text="⭐️"
+                                android:textSize="12sp"
+                                android:background="@null"
+                                app:buttonTint="@color/pinkDark"/>
+
+                        </RadioGroup>
+                        <Button
+                            android:id="@+id/btnApDung"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Áp dụng"
+                            android:backgroundTint="@color/pinkDark"
+                            android:layout_gravity="right"
+                            android:textSize="13sp"
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true">
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+                    <TextView
+                        android:id="@+id/tvthongBao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thông báo"
+                        android:layout_gravity="center_horizontal"
+                        android:visibility="gone"/>
+                    <LinearLayout
+                        android:id="@+id/layoutKQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kết quả tìm kiếm"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/roboto"
+                            android:textStyle="bold"/>
+                        <!-- Danh sách sản phẩm -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler_kq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:overScrollMode="never"
+                            android:layout_marginTop="10dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
