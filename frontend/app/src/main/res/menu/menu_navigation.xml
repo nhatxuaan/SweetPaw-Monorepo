@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_home" android:title="Trang chủ" android:icon="@drawable/home"/>
-    <item android:id="@+id/menu_cart" android:title="Giỏ hàng" android:icon="@drawable/menucart" />
-    <item android:id="@+id/menu_order" android:title="Đơn hàng" android:icon="@drawable/menuorder" />
-    <item android:id="@+id/menu_heart" android:title="Yêu thích" android:icon="@drawable/menu_heart" />
-    <item android:id="@+id/menu_profile" android:title="Hồ sơ" android:icon="@drawable/menuprofile" />
-</menu>

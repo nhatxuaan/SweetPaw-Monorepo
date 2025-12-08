@@ -1,8 +1,0 @@
-# Node modules 
-node_modules/
-
-## File môi trường
-.env
-
-# Firebase service account key
-serviceAccountKey.json
