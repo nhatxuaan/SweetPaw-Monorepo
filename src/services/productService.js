@@ -102,7 +102,7 @@ const filterProducts = async (filters) => {
   }
 
   if (rating) {
-    query.rating = { $gte: Number(rating) };
+    query.rating_avg = { $gte: Number(rating) };
   }
 
   if (keyword) {
@@ -129,6 +129,22 @@ const filterProducts = async (filters) => {
   return products;
 };
 
+// Lấy sản phẩm bán nhiều nhất
+const getTopSellingProductsService = async () => {
+    const products = await Product.find()
+    .sort({sold_count: -1 }) // Sắp xếp giảm dần theo số lượng đã bán
+    .limit(4); // Giới hạn lấy về 10 sản phẩm
+    return products;
+}
+
+// Lấy sản phẩm mới nhất
+const getNewArrivalProductsService = async () => {  
+    const products = await Product.find()
+    .sort({ createdAt: -1 }) // Sắp xếp giảm dần theo ngày tạo
+    .limit(4);
+    return products;
+}
+
 
 
 
@@ -139,7 +155,9 @@ module.exports = {
     getProductsByCategoryService,
     searchProductsService,
     getProductDetailService,
-    filterProducts
+    filterProducts, 
+    getTopSellingProductsService,
+    getNewArrivalProductsService,
 };
 
 

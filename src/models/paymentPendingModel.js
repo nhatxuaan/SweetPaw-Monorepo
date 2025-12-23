@@ -8,6 +8,7 @@ const PaymentPendingSchema = new mongoose.Schema({
   },
 
   amount: { type: Number, required: true },
+  description: { type: String, required: true },
   qrUrl: { type: String, required: true },
 
   status: { 

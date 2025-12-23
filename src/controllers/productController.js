@@ -116,6 +116,32 @@ const filterProducts = async (req, res, next) => {
   }
 };
 
+// Controller lấy sản phẩm bán nhiều nhất 
+const getTopSellingProductsController = async (req, res, next) => {
+    try {
+        const products = await productService.getTopSellingProductsService();
+        res.status(200).json({
+            message: "Lấy sản phẩm bán nhiều nhất thành công",
+            data: products,
+        });
+    } catch (error) {
+        next (error)
+    }
+};
+
+//Controller lấy sản phẩm mới nhất
+const getNewArrivalProductsController = async (req, res, next) => { 
+    try {
+        const products = await productService.getNewArrivalProductsService();
+        res.status(200).json({
+            message: "Lấy sản phẩm mới nhất thành công",
+            data: products,
+        });
+    } catch (error) {
+        next (error)
+    }
+};  
+
 
 
 module.exports = {
@@ -123,5 +149,7 @@ module.exports = {
     getProductsByCategoryController,
     searchProductsController,
     getProductDetailController,
-    filterProducts
+    filterProducts,
+    getTopSellingProductsController,   
+    getNewArrivalProductsController,
 };

@@ -27,12 +27,19 @@ const createPaymentService = async (orderId, amount) => {
     throw new ApiError(400, "Thiếu thông tin tạo thanh toán");
   }
 
+  // Nội dung chuyển khoản duy nhất cho đơn
+  const description = `ORDER_${orderId}`;
 
   const nextVASeq = await getNextVASequence();
   const vaNumber = `${process.env.CASSO_VA}-${String(nextVASeq).padStart(6, "0")}`;
-  const qrUrl =
-  `https://img.vietqr.io/image/BIDV-${vaNumber}-compact.png` +
-  `?amount=${amount}`;
+  // const qrUrl =
+  // `https://img.vietqr.io/image/BIDV-${vaNumber}-compact.png` +
+  // `?amount=${amount}`;
+
+   const qrUrl =
+    `https://img.vietqr.io/image/BIDV-${vaNumber}-compact.png` +
+    `?amount=${amount}&addInfo=${encodeURIComponent(description)}`;
+  
 
 
   // Lưu thông tin thanh toán chờ vào DB
@@ -40,6 +47,7 @@ const createPaymentService = async (orderId, amount) => {
     orderId,
     amount,
     qrUrl,
+    description,
     status: "PENDING",
   });
 
@@ -59,64 +67,89 @@ const handleCassoWebhookService = async (webhookData) => {
   }
 
   // 2) Duyệt từng giao dịch
-for (const tx of data) {
-  try {
-    const tid = tx.tid;
-    const amount = tx.amount;
-    const description = tx.description;
+  for (const tx of data) {
+    try {
+      const tid = tx.tid;
+      const amount = tx.amount;
+      const description = tx.description;
 
-    console.log("Giao dịch:", tx);
+      console.log("Giao dịch:", tx);
 
-    const payment = await PaymentPending.findOne({
-      amount,
-      status: "PENDING",
-    });
+      // const payment = await PaymentPending.findOne({
+      //   amount,
+      //   status: "PENDING",
+      // });
 
-    if (!payment) {
-      console.log("Không tìm thấy payment pending phù hợp");
-      continue;
-    }
+      // const orderIdMatch = tx.description?.match(/ORDER_([a-f0-9]{24})/i);
+      // if (!orderIdMatch) continue;
 
-    if (payment.transactionId) {
-      console.log("Giao dịch đã xử lý trước đó");
-      continue;
-    }
+      // const orderId = orderIdMatch[1];
 
-    payment.transactionId = tid;
-    payment.status = "SUCCESS";
-    await payment.save();
+      const orderIdMatch = tx.description?.match(/ORDER\s*[_-]?([a-f0-9]{24})/i);
+      if (!orderIdMatch) {
+        console.log("Không parse được orderId từ description:", tx.description);
+        continue;
+      }
 
-    const order = await Order.findById(payment.orderId);
-    if (!order) {
-      console.log("Không tìm thấy Order tương ứng");
-      continue;
-    }
+      const orderId = orderIdMatch[1];
 
-    // order.status = "Đang xử lý"; 
-    order.paymentStatus = "SUCCESS";
-    await order.save();
+      console.log("Description:", tx.description);
+      console.log("Parsed orderId:", orderId);
 
-    const user = await User.findById(order.user);
-    if (user?.fcmToken) {
-      await sendToToken({
-        fcmToken: user.fcmToken,
-        title: "Thanh toán thành công!",
-        body: `Đơn hàng ${order._id.toString()} đã được thanh toán.`,
-        data: {
-          type: "payment_success",
-          orderId: order._id.toString(),
-          amount: payment.amount
-        },
-        userId: user._id.toString()
+
+
+      const payment = await PaymentPending.findOne({
+        orderId,
+        status: "PENDING",
       });
+
+
+      if (!payment) {
+        console.log("Không tìm thấy payment pending phù hợp");
+        continue;
+      }
+
+      if (payment.transactionId) {
+        console.log("Giao dịch đã xử lý trước đó");
+        continue;
+      }
+
+      payment.transactionId = tid;
+      payment.status = "SUCCESS";
+      payment.description = payment.description || tx.description;
+      await payment.save();
+
+      const order = await Order.findById(payment.orderId);
+      if (!order) {
+        console.log("Không tìm thấy Order tương ứng");
+        continue;
+      }
+
+      // order.status = "Đang xử lý"; 
+      order.paymentStatus = "SUCCESS";
+      await order.save();
+
+      const user = await User.findById(order.user);
+      if (user?.fcmToken) {
+        await sendToToken({
+          fcmToken: user.fcmToken,
+          title: "Thanh toán thành công!",
+          body: `Đơn hàng ${order._id.toString()} đã được thanh toán.`,
+          data: {
+            type: "payment_success",
+            orderId: order._id.toString(),
+            amount: payment.amount.toString()
+          },
+          userId: user._id.toString()
+        });
+      }
+
+      console.log("Thanh toán thành công cho Order:", payment.orderId);
+
+    } catch (err) {
+      console.error("Lỗi xử lý từng giao dịch:", err);
     }
-
-    console.log("Thanh toán thành công cho Order:", payment.orderId);
-
-  } catch (err) {
-    console.error("Lỗi xử lý từng giao dịch:", err);
   }
-}
 
   return { success: true };
 };
