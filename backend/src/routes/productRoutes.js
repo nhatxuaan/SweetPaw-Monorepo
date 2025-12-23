@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const authMiddleware = require("../middlewares/authMiddleware");
-const {getAllProductController, getProductsByCategoryController, searchProductsController, getProductDetailController,filterProducts} = require("../controllers/productController");
+const {getAllProductController, getProductsByCategoryController, searchProductsController, 
+    getProductDetailController,filterProducts, getTopSellingProductsController,
+    getNewArrivalProductsController} = require("../controllers/productController");
 
 // GET /api/products
 
@@ -19,6 +21,12 @@ router.get("/search", searchProductsController);
 
 // Lấy chi tiết thông tin sản phẩm 
 router.get("/:productId", getProductDetailController)
+
+// Lấy sản phẩm bán nhiều nhất 
+router.get("/top/selling", getTopSellingProductsController);
+
+//Lấy sản phẩm mới nhất
+router.get("/top/new", getNewArrivalProductsController);
 
 
 

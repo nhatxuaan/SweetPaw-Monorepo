@@ -120,7 +120,7 @@ const getCustomersService = async () => {
 
 // API thêm khách hàng mới 
 const addCustomerService = async (customerData) => {
-    if (!customerData.Hoten || !customerData.Email) {
+    if (!customerData.HoTen || !customerData.Email) {
         throw new ApiError(400, "Tên đăng nhập, email và mật khẩu là bắt buộc");
     }
     const existingUser = await User.findOne({ Email: customerData.Email });
