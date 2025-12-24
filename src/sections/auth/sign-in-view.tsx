@@ -48,6 +48,8 @@ export function SignInView() {
 
     if (data.Boolean === true) {
       localStorage.setItem("adminToken", data.token);
+      localStorage.setItem("admin_id", data.admin.id);
+      console.log("admin_id", data.admin.id);
       router.push("/sweetpaw");
     } else {
       alert("Sai email hoặc mật khẩu!");

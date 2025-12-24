@@ -27,6 +27,7 @@ export function MessagesView() {
   const [inputMsg, setInputMsg] = useState("");
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const socketRef = useRef<any>(null);
+  const selectedChatRef = useRef<ChatItem | null>(null);
 
   // ---------- init socket + load chats ----------
   useEffect(() => {
@@ -36,6 +37,8 @@ export function MessagesView() {
 
     socket.on("connect", () => {
       console.log("[SOCKET] connected", socket.id);
+
+      
     });
 
     socket.on("disconnect", () => {
@@ -48,7 +51,7 @@ export function MessagesView() {
       console.log("[SOCKET] userMessage", msg);
 
       // 1) if the message belongs to currently opened chat -> append to messageList
-      if (selectedChat && (msg.chatId === selectedChat._id || msg.userId === selectedChat.user?._id)) {
+      if (selectedChatRef.current && (msg.chatId === selectedChatRef.current._id || msg.userId === selectedChatRef.current.user?._id)) {
         setMessageList((prev) => [
           ...prev,
           {
@@ -119,7 +122,16 @@ export function MessagesView() {
   // ---------- open chat (load history) ----------
   const openChat = async (chat: ChatItem) => {
     setSelectedChat(chat);
+    selectedChatRef.current = chat;
     setMessageList([]); // clear while loading
+
+    const adminId = localStorage.getItem("admin_id");
+    console.log("adminId mở chat:", adminId);
+    if (adminId) {
+      SocketAdmin.joinRoom(adminId);
+    }
+    
+    SocketAdmin.openChat(chat.user?._id || "", chat._id);
 
     try {
       const res = await apiGetChatHistory(chat.user?._id || ""); // expected shape: { messages: ChatMessage[] }
@@ -156,12 +168,7 @@ export function MessagesView() {
     setInputMsg("");
 
     // emit socket realtime
-    socketRef.current?.emit("adminMessage", {
-      chatId: selectedChat._id,
-      userId: selectedChat.user?._id,
-      content: text,
-      timestamp: new Date().toISOString(),
-    });
+    SocketAdmin.sendAdminMessage(selectedChat.user?._id || "", selectedChat._id, text);
 
     // gọi API lưu tin nhắn
     try {
