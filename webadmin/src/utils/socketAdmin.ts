@@ -46,6 +46,7 @@ class SocketAdmin {
         console.log("Admin mở cuộc chat của user", userId, "với chatId", chatId);
         const data = { userId: userId, chatId: chatId };
         SocketAdmin.instance?.emit("openChat", data);
+
     }
 
     static sendAdminMessage(userId: string, chatId: string, content: string) {
