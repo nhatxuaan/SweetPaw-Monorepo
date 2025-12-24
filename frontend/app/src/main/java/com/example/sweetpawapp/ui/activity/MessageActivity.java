@@ -92,7 +92,8 @@ public class MessageActivity extends AppCompatActivity implements SocketManager.
                 Message msg = new Message();
                 msg.setMessageId(msgJson.getString("_id"));
                 msg.setContent(msgJson.getString("content"));
-                msg.setSenderModel(msgJson.getString("senderModel"));
+                // msg.setSenderModel(msgJson.getString("senderModel"));
+                msg.setSenderModel(msgJson.optString("senderModel", "Admin"));
                 msg.setRead(true);
 
                 messages.add(msg);
@@ -120,8 +121,8 @@ public class MessageActivity extends AppCompatActivity implements SocketManager.
             adapter.notifyDataSetChanged();
             recyclerView.scrollToPosition(messages.size() - 1);
 
-            // Nếu socket đã connect, join chat room
-            if (SocketManager.isConnected()) joinChatRoom(chat);
+            // Nếu socket đã connect, join chat roomhhhh
+            joinChatRoom(chat);
         });
     }
 

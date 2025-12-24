@@ -114,10 +114,12 @@ public class SocketManager {
     // ===== Mở chat =====
     public static void openChat(String userId, String chatId) {
         try {
+            joinRoom(userId);
             JSONObject data = new JSONObject();
             data.put("userId", userId);
             data.put("chatId", chatId);
             socket.emit("openChat", data);
+
         } catch (Exception e) {
             Log.e(TAG, "openChat error: " + e.getMessage());
         }
