@@ -2,14 +2,15 @@
 
 ## 📌 Overview
 
-SweetPaw Monorepo is a full-stack system designed for managing pet-related services. The project integrates backend APIs, frontend applications, AI modules, and an admin dashboard into a unified architecture.
+SweetPaw Monorepo is a full-stack web application for managing and selling bakery products online. The system provides a seamless experience for users to browse, order, and manage sweet products, while offering an admin dashboard for monitoring and management.
 
-This project demonstrates the ability to build scalable systems and integrate artificial intelligence into real-world applications.
+The project integrates frontend, backend, and AI modules into a unified architecture, demonstrating the ability to build scalable systems and apply intelligent features in real-world applications.
 
 ---
 
 ## 🚀 Features
 
+````
 - 🔐 User authentication and management
 - 🌐 Full-stack web application (user + admin)
 - 🤖 AI module for prediction and data processing
@@ -64,7 +65,7 @@ User → Frontend → Backend API → AI Module → Database → Response
 ```bash
 git clone https://github.com/23521549-lang/SweetPaw-Monorepo.git
 cd SweetPaw-Monorepo
-```
+````
 
 ### 2. Run Backend
 
