@@ -94,35 +94,3 @@ Sweet-Backend/
 ├── package.json                       # Thông tin & dependencies
 └── README.md                          # Hướng dẫn sử dụng
 ```
-
-## Quy tắt đặt tên
-
-```bash
-# Biến & Hàm
-  - Cách viết: chữ đầu viết thường, viết hóa chữ cái đầu các chữ tiếp theo, viết liền ko cách, ko gạch nối.
-  - Cấu trúc:
-    + Biến là [danh từ] mô tả dữ liệu, ví dụ: userName.
-    + Hàm là [động từ + danh từ] mô tả chức năng, getUser().
-  - Chú ý:
-    + Biến/Hàm là có kiểu boolean thì thêm "is" ở trc.
-    + Mảng thì thêm s.
-# Biến tạm
-  - cách viết: viết như cách viết biến và hàm, nhưng mà ngắn gọn dễ hiểu, viết một chữ thâu nhiều nhất là hai chữ nhưng mà hạn chế viết hai chữ.
-  - ví dụ: count, item.
-# Hằng số
-  - cách viết: tất cả chữ in hoa, ngăn cách bằng dấu gạch dưới, mô tả rõ chức năng/ý nghĩa của biến, ví dụ: SERVER_PORT.
-# Class (thằng này trong backend hình như là model/Schema hay sao á)
-  - cách viết: mỗi từ viết hoa chữ cái đầu.
-  - Cấu trúc: [Tên đối tượng] + [mô tả].
-```
-
-## Push code lên github (bữa tui nghe mấy fen ko bt sài lệnh git nên tui để lệnh ở đây chạy từng lệnh là push lên đc)
-
-- git add .
-- git commit -m "sửa cái gì thì ghi commit zô dấu ngoặc kép này"
-- git push origin master (thường thì ko push thẳng lên nhánh master đâu mà push vào các nhanh khác, nào code chạy oke ko lỗi thì mới push thẳng lên nhánh master nên là nếu push lên nhánh nào thì đỗi master thành tên nhánh đó nha)
-
-## Các lệnh khác (nhớ xem)
-
-- sau khi clone code dề, thì chạy lệnh "cd SweetPaw-Backend" rồi chạy lệnh "npm install" để nó cài lại hết node_modules/ (vì push code lên git sẽ bỏ qua node_modules/ tại nó nặng nên clone code về phải cài lại nó).
-- tui có sửa lại phần scripts nên mọi người chạy code bằng lệnh "npm start" còn debug bằng lệnh "npm run dev"
