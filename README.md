@@ -10,7 +10,6 @@ The project integrates frontend, backend, and AI modules into a unified architec
 
 ## 🚀 Features
 
-````
 - 🔐 User authentication and management
 - 🌐 Full-stack web application (user + admin)
 - 🤖 AI module for prediction and data processing
@@ -21,6 +20,8 @@ The project integrates frontend, backend, and AI modules into a unified architec
 
 ## 🏗️ Architecture / Project Structure
 
+---
+
 SweetPaw-Monorepo/
 │
 ├── backend/ # REST API, business logic, authentication
@@ -28,6 +29,8 @@ SweetPaw-Monorepo/
 ├── modelAi/ # AI/ML models and inference logic
 ├── webadmin/ # Admin dashboard
 └── README.md
+
+---
 
 ### 🔹 System Workflow
 
@@ -65,7 +68,7 @@ User → Frontend → Backend API → AI Module → Database → Response
 ```bash
 git clone https://github.com/23521549-lang/SweetPaw-Monorepo.git
 cd SweetPaw-Monorepo
-````
+```
 
 ### 2. Run Backend
 
