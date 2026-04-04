@@ -117,5 +117,5 @@ python main.py
 
 - Huỳnh Ngọc Thuận
 - Lê Thị Ngọc Hân
-- Võ Trần Khả Hân
+- Võ Hà Khả Hân
 - Ngô Nhật Xuân
