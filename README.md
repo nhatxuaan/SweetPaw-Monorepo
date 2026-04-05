@@ -113,7 +113,7 @@ python main.py
 - Modular and scalable architecture
 - Real-world application of machine learning
 
-## 👤 Author
+## 👤 Authors
 
 - Huỳnh Ngọc Thuận
 - Lê Thị Ngọc Hân
